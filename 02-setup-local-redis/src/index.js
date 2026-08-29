@@ -11,6 +11,10 @@ const redis = new Redis(
   },
 );
 
+app.get("/", (req, res) => {
+  res.send("Hello World!");
+});
+
 app.get("/redis", async (req, res) => {
   const value = await redis.ping();
   res.send({ redis: value });
@@ -28,7 +32,6 @@ app.get("/mongo", async (req, res) => {
   });
 });
 
-
-app.listen(3000, () => {
-  console.log("Server is running on port 3000");
+app.listen(8000, () => {
+  console.log("Server is running on port 8000");
 });
